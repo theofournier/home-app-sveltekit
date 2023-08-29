@@ -1,6 +1,13 @@
 <script lang="ts">
   import "./app.css";
+  import { enhance } from "$app/forms";
   export let data;
+
+  let date = new Date();
+
+  setInterval(() => {
+    date = new Date();
+  }, 1000);
 </script>
 
 <div class="app" style="background-image: url({data.image.urls.full})">
@@ -27,19 +34,19 @@
           </a>
         </span>
       </div>
-      <!-- <div class="date-container">
-        <span class="text clock" onClick={getRandomImage}>
-          {datetime.toLocaleTimeString()}
-        </span>
-        <span
-          class="text date"
-          onClick={() => {
-            if (index === 0 || isLoading) return;
-            setIndex(index - 1);
-          }}
+      <form method="POST" use:enhance>
+        <label>
+          <input type="submit" hidden />
+          <div class="date-container">
+            <span class="text clock">
+              {date.toLocaleTimeString()}
+            </span>
+            <span class="text date">
+              {date.toLocaleDateString()}
+            </span>
+          </div></label
         >
-          {datetime.toLocaleDateString()}
-        </span> -->
+      </form>
     </div>
   </div>
 </div>

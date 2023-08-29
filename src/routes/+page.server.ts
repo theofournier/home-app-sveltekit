@@ -1,6 +1,6 @@
 import { UNSPLASH_API_KEY } from "$env/static/private";
 import { error } from "@sveltejs/kit";
-import type { PageServerLoad } from "./$types";
+import type { Actions, PageServerLoad } from "./$types";
 import { createApi } from "unsplash-js";
 import type { Random } from "unsplash-js/dist/methods/photos/types";
 
@@ -22,4 +22,8 @@ export const load: PageServerLoad = async () => {
   } catch (e) {
     throw error(500, e as Error);
   }
+};
+
+export const actions: Actions = {
+  default: () => {},
 };
