@@ -10,19 +10,19 @@
   }, 1000);
 </script>
 
-<div class="app" style="background-image: url({data.image.urls.full})">
+<div class="app" style="background-image: url({data.imageUrl})">
   <div class="bottom-container">
     <div class="content-container">
       <div class="title-container">
-        <span class="text location">{data.image.location.name ?? ""}</span>
+        <span class="text location">{data.locationName ?? ""}</span>
         <span class="text unsplash">
           Photo by
           <a
-            href={`https://unsplash.com/@${data.image.user.username}?utm_source=home-app-theofournier&utm_medium=referral`}
+            href={`https://unsplash.com/@${data.username}?utm_source=home-app-theofournier&utm_medium=referral`}
             target="_blank"
             rel="noopener noreferrer"
           >
-            {data.image.user.name}
+            {data.usernameFull}
           </a>
           on
           <a

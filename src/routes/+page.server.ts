@@ -18,7 +18,13 @@ export const load: PageServerLoad = async () => {
     if (result.errors) {
       throw error(500, result.errors.join(","));
     }
-    return { image: result.response as Random };
+    const image = result.response as Random;
+    return {
+      imageUrl: image.urls.full,
+      locationName: image.location.name,
+      username: image.user.username,
+      usernameFull: image.user.name,
+    };
   } catch (e) {
     throw error(500, e as Error);
   }
