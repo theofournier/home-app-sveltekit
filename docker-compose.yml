@@ -1,0 +1,7 @@
+version: "3.8"
+
+services:
+  app:
+    image: home-app-sveltekit
+    container_name: home-app-sveltekit
+    working_dir: /app
